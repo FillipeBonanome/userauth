@@ -17,8 +17,7 @@ public class User {
     private List<Permission> permissions;
     private Boolean deleted;
 
-    public User(UUID id, String name, String username, String password, String email, Role role, List<Permission> permissions, Boolean deleted) {
-        setId(id);
+    public User(String name, String username, String password, String email, Role role, List<Permission> permissions, Boolean deleted) {
         setName(name);
         setUsername(username);
         setPassword(password);

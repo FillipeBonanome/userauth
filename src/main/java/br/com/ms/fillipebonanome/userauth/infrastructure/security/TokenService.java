@@ -28,6 +28,8 @@ public class TokenService implements TokenGeneratorInterface {
                     withIssuer(issuer)
                     .withSubject(user.getEmail())
                     .withExpiresAt(expirationDate())
+                    .withClaim("permissions", user.getPermissions())
+                    .withClaim("role", user.getRole().toString())
                     .sign(algorithm);
         } catch (JWTCreationException exception) {
             throw new RuntimeException("Error generating JWT Token", exception);

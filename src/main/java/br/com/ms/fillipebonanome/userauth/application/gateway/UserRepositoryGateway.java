@@ -10,6 +10,4 @@ import java.util.UUID;
 */
 public interface UserRepositoryGateway {
     User registerUser(User user);
-    List<User> readUsers();
-    User readUserFromId(UUID uuid);
 }

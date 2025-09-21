@@ -4,6 +4,7 @@ import br.com.ms.fillipebonanome.userauth.domain.enums.Permission;
 import br.com.ms.fillipebonanome.userauth.domain.enums.Role;
 import br.com.ms.fillipebonanome.userauth.domain.exceptions.UserException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,13 +15,14 @@ public class User {
     private String password;
     private String email;
     private Role role;
-    private List<Permission> permissions;
+    private List<Permission> permissions = new ArrayList<>();
     private Boolean deleted;
 
+    //TODO --> Change because of hashing
     public User(String name, String username, String password, String email, Role role, List<Permission> permissions, Boolean deleted) {
         setName(name);
         setUsername(username);
-        setPassword(password);
+        this.password = password;
         setEmail(email);
         setRole(role);
         setPermissions(permissions);
@@ -76,6 +78,7 @@ public class User {
         return password;
     }
 
+    //TODO --> Change REGEX
     public void setPassword(String password) {
         if(password == null) {
             throw new UserException("User password cannot be null");

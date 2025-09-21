@@ -7,7 +7,7 @@ import br.com.ms.fillipebonanome.userauth.infrastructure.gateway.UserService;
 import br.com.ms.fillipebonanome.userauth.infrastructure.persistence.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 public class UserConfiguration {
@@ -18,7 +18,7 @@ public class UserConfiguration {
     }
 
     @Bean
-    UserService userService(UserRepository userRepository, UserEntityMapper userEntityMapper, PasswordEncoder passwordEncoder) {
+    UserService userService(UserRepository userRepository, UserEntityMapper userEntityMapper, BCryptPasswordEncoder passwordEncoder) {
         return new UserService(userRepository, userEntityMapper, passwordEncoder);
     }
 
@@ -28,7 +28,7 @@ public class UserConfiguration {
     }
 
     @Bean
-    UserRepositoryGateway userRepositoryGateway(UserRepository userRepository, UserEntityMapper userEntityMapper, PasswordEncoder passwordEncoder) {
+    UserRepositoryGateway userRepositoryGateway(UserRepository userRepository, UserEntityMapper userEntityMapper, BCryptPasswordEncoder passwordEncoder) {
         return new UserService(userRepository, userEntityMapper, passwordEncoder);
     }
 

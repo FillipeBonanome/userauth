@@ -36,7 +36,7 @@ public class UserEntity implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "permission_id")
     )*/
     @Transient
-    private List<Permission> permissions;
+    private List<Permission> permissions = new ArrayList<>();
     private Boolean deleted;
 
     public UserEntity() {
